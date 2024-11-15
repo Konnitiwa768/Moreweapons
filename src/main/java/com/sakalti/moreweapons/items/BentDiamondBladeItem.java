@@ -41,7 +41,7 @@ public class BentDiamondBladeItem extends SwordItem {
             public Ingredient getRepairIngredient() {
                 return Ingredient.ofItems(Items.DIAMOND); // 修理アイテム
             }
-        }, 0, -2.24F, new Settings().group(ItemGroup.COMBAT));
+        }, 0, -2.67pF, new Settings().group(ItemGroup.COMBAT));
     }
 
     @Override
