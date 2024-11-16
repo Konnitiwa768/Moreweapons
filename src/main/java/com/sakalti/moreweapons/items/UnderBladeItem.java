@@ -15,7 +15,7 @@ public class UnderBladeItem extends SwordItem {
         super(new ToolMaterial() {
             @Override
             public int getDurability() {
-                return 1203; // 耐久1203
+                return 1667; // 耐久1667
             }
 
             @Override
@@ -25,7 +25,7 @@ public class UnderBladeItem extends SwordItem {
 
             @Override
             public float getAttackDamage() {
-                return 10.0F; // 攻撃力10
+                return 6.5F; // 攻撃力10
             }
 
             @Override
