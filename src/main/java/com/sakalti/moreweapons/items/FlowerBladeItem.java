@@ -18,7 +18,7 @@ public class FlowerBladeItem extends SwordItem {
         super(new ToolMaterial() {
             @Override
             public int getDurability() {
-                return 753; // 耐久753
+                return 1000; // 耐久1000
             }
 
             @Override
@@ -45,13 +45,13 @@ public class FlowerBladeItem extends SwordItem {
             public Ingredient getRepairIngredient() {
                 return Ingredient.ofItems(Items.FLOWER_POT); // 修理アイテム
             }
-        }, 0, -2.4F, new Settings().group(ItemGroup.COMBAT));
+        }, 0, -2.2F, new Settings().group(ItemGroup.COMBAT));
     }
 
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1)); // 2秒の毒効果
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 20, 1)); // 20秒の毒効果
         }
         return super.use(world, user, hand);
     }
