@@ -11,7 +11,7 @@ public class CoralGreatswordItem extends SwordItem {
         super(new ToolMaterial() {
             @Override
             public int getDurability() {
-                return 1347; // 耐久値1347
+                return 1152; // 耐久値1347
             }
 
             @Override
