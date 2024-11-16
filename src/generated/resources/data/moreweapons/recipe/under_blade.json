@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OO ",
+    " OO",
+    "IOI"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:obsidian"
+    },
+    "I": {
+      "item": "minecraft:iron"
+    }
+  },
+  "result": {
+    "item": "moreweapons:under_blade"
+  }
+}
