@@ -26,7 +26,7 @@ public class ChorusBladeItem extends SwordItem {
 
             @Override
             public int getMiningLevel() {
-                return 9;
+                return 2;
             }
 
             @Override
