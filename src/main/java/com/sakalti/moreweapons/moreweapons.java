@@ -7,6 +7,7 @@ import com.sakalti.moreweapons.items.BentDiamondBladeItem;
 import com.sakalti.moreweapons.items.ChorusBladeItem;
 import com.sakalti.moreweapons.items.DeepslateSwordItem;
 import com.sakalti.moreweapons.items.NormalRifleItem;
+import com.sakalti.moreweapons.items.ShulkerGreatSwordItem; // シュルカー大剣のインポート
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -23,5 +24,8 @@ public class MoreWeaponsMod implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "chorus_blade"), new ChorusBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "deepslate_sword"), new DeepslateSwordItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "normal_rifle"), new NormalRifleItem());
+        
+        // シュルカー大剣の登録
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "shulker_great_sword"), new ShulkerGreatSwordItem());
     }
 }
