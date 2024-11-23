@@ -49,6 +49,7 @@ public class NormalRifleItem extends Item {
             if (hit.getEntity() instanceof LivingEntity) {
                 LivingEntity target = (LivingEntity) hit.getEntity();
                 target.damage(user.getDamageSources().player(user), 4.0F); // ダメージ4
+                target.timeUntilRegen = 0; // 無敵時間をリセット
                 user.sendMessage(net.minecraft.text.Text.literal("敵に命中しました！"), true);
 
                 // 耐久値を1減らす
