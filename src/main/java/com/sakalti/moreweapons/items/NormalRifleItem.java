@@ -5,6 +5,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Box;
@@ -55,6 +57,9 @@ public class NormalRifleItem extends Item {
         } else {
             user.sendMessage(net.minecraft.text.Text.literal("敵が範囲内にいません。"), true);
         }
+
+        // 爆発音を再生
+        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
         return ActionResult.SUCCESS;
     }
