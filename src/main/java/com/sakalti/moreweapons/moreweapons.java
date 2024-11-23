@@ -6,6 +6,7 @@ import com.sakalti.moreweapons.items.CoralGreatswordItem;
 import com.sakalti.moreweapons.items.BentDiamondBladeItem;
 import com.sakalti.moreweapons.items.ChorusBladeItem;
 import com.sakalti.moreweapons.items.DeepslateSwordItem;
+import com.sakalti.moreweapons.items.NormalRifleItem;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -21,5 +22,6 @@ public class MoreWeaponsMod implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "bent_diamond_blade"), new BentDiamondBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "chorus_blade"), new ChorusBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "deepslate_sword"), new DeepslateSwordItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "normal_rifle"), new NormalRifleItem());
     }
 }
