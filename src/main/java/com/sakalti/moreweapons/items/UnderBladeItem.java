@@ -25,7 +25,7 @@ public class UnderBladeItem extends SwordItem {
 
             @Override
             public float getAttackDamage() {
-                return 6.5F; // 攻撃力10
+                return 7.0F; // 攻撃力7
             }
 
             @Override
@@ -42,7 +42,7 @@ public class UnderBladeItem extends SwordItem {
             public Ingredient getRepairIngredient() {
                 return Ingredient.ofItems(Items.OBSIDIAN); // 修理アイテム
             }
-        }, 0, -2.4F, new Settings().group(ItemGroup.COMBAT));
+        }, 0, 2.0F, new Settings().group(ItemGroup.COMBAT));
     }
 
     @Override
