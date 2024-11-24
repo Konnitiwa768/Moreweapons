@@ -21,7 +21,7 @@ public class ChorusBladeItem extends SwordItem {
 
             @Override
             public float getAttackDamage() {
-                return 5.5F; // 攻撃力5.5
+                return 6.95F; // 攻撃力5.5
             }
 
             @Override
