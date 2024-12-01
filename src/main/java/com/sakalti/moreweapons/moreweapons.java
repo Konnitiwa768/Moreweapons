@@ -20,6 +20,7 @@ public class MoreWeaponsMod implements ModInitializer {
     public void onInitialize() {
         // 各アイテムの登録
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "flower_blade"), new FlowerBladeItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "armor_destroyer"), new ArmorDestroyerItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "laser_blade"), new LaserBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "under_blade"), new UnderBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "coral_greatsword"), new CoralGreatswordItem());
