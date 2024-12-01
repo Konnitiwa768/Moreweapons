@@ -1,5 +1,6 @@
 package com.sakalti.moreweapons;
 
+import com.sakalti.moreweapons.items.ArmorDestroyerItem;
 import com.sakalti.moreweapons.items.FlowerBladeItem;
 import com.sakalti.moreweapons.items.LaserBladeItem;
 import com.sakalti.moreweapons.items.UnderBladeItem;
