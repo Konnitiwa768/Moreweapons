@@ -1,6 +1,7 @@
 package com.sakalti.moreweapons;
 
 import com.sakalti.moreweapons.items.ArmorDestroyerItem;
+import com.sakalti.moreweapons.items.MatchlockItem;
 import com.sakalti.moreweapons.items.FlowerBladeItem;
 import com.sakalti.moreweapons.items.LaserBladeItem;
 import com.sakalti.moreweapons.items.UnderBladeItem;
@@ -20,6 +21,7 @@ public class MoreWeaponsMod implements ModInitializer {
     public void onInitialize() {
         // 各アイテムの登録
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "flower_blade"), new FlowerBladeItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "matchlock"), new MatchlockItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "armor_destroyer"), new ArmorDestroyerItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "laser_blade"), new LaserBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "under_blade"), new UnderBladeItem());
