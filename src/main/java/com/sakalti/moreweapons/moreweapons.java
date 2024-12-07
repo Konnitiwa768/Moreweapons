@@ -12,6 +12,7 @@ import com.sakalti.moreweapons.items.DeepslateSwordItem;
 import com.sakalti.moreweapons.items.NormalRifleItem;
 import com.sakalti.moreweapons.items.ShulkerGreatSwordItem; // シュルカー大剣のインポート
 import com.sakalti.moreweapons.items.DiamondQuarterstaffItem; // ダイヤモンドクアータースタッフのインポート
+import com.sakalti.moreweapons.items.IronBowItem;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
@@ -24,6 +25,7 @@ public class MoreWeaponsMod implements ModInitializer {
     public void onInitialize() {
         // 各アイテムの登録
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "flower_blade"), new FlowerBladeItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "iron_bow"), new IronBowItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "matchlock"), new MatchlockItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "armor_destroyer"), new ArmorDestroyerItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "laser_blade"), new LaserBladeItem());
