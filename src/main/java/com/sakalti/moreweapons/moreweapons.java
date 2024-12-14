@@ -1,6 +1,7 @@
 package com.sakalti.moreweapons;
 
 import com.sakalti.moreweapons.items.ArmorDestroyerItem;
+import com.sakalti.moreweapons.items.RedAgateItem;
 import com.sakalti.moreweapons.items.MatchlockItem;
 import com.sakalti.moreweapons.items.FlowerBladeItem;
 import com.sakalti.moreweapons.items.LaserBladeItem;
@@ -36,6 +37,7 @@ public class MoreWeaponsMod implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "deepslate_sword"), new DeepslateSwordItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "normal_rifle"), new NormalRifleItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "shulker_great_sword"), new ShulkerGreatSwordItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "red_agate"), new RedAgateItem());
         
         // ダイヤモンドクアータースタッフの登録
         Registry.register(Registries.ITEM, 
