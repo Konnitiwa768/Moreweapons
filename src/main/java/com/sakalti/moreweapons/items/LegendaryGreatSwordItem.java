@@ -43,7 +43,7 @@ public class LegendaryGreatSwordItem extends SwordItem {
             public Ingredient getRepairIngredient() {
                 return Ingredient.ofItems(Items.DIAMOND_BLOCK); // 修理アイテム: ダイヤモンドブロック
             }
-        }, 0, -2.86F, new Settings().group(ItemGroup.COMBAT));
+        }, 0, -1.14F, new Settings().group(ItemGroup.COMBAT));
     }
 
     @Override
