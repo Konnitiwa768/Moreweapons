@@ -1,0 +1,21 @@
+name: Create Moreweapons Folder
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushされたときに実行される
+
+jobs:
+  create-folder:
+    runs-on: ubuntu-latest  # GitHub Actionsのランナー環境としてUbuntuを使用
+
+    steps:
+    # リポジトリをチェックアウト
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Moreweapons フォルダを作成する
+    - name: Create Moreweapons folder
+      run: |
+        mkdir -p Moreweapons  # Moreweaponsフォルダを作成
+        echo "Moreweapons folder created!"  # 作成完了メッセージ
