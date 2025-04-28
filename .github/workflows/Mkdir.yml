@@ -1,4 +1,4 @@
-name: Move Files and Upload JAR to GitHub Release!
+name: Move Files and Upload JAR to GitHub Release!!
 
 on:
   push:
