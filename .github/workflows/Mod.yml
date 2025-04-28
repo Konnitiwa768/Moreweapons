@@ -41,7 +41,7 @@ jobs:
   # Deployment job
   deploy:
     environment:
-      name: gitname: Build and Upload Mod
+      name: Build and Upload Mod
 
 on:
   push:
