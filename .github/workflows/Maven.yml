@@ -1,4 +1,4 @@
-name: Build and Upload Mod
+name: Build and Upload Mod from moreweapons folder
 
 on:
   push:
@@ -21,14 +21,16 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # Mavenを使用してビルド
-    - name: Build with Maven
-      run: mvn -f ./pom.xml clean install  # `pom.xml` のパスを明示的に指定
+    # `moreweapons` フォルダに移動してビルド
+    - name: Build with Maven from moreweapons folder
+      run: |
+        cd moreweapons  # `moreweapons` フォルダに移動
+        mvn clean install  # `moreweapons` 内の `pom.xml` を使ってビルド
 
     # ビルドしたJARファイルをGitHub Releaseにアップロード
     - name: Upload JAR to GitHub Release
       uses: softprops/action-gh-release@v1
       with:
-        files: target/*.jar  # ビルドされたJARファイルをアップロード
+        files: moreweapons/target/*.jar  # `moreweapons` 内のビルドされたJARファイルをアップロード
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub SecretsのTOKENを使用
