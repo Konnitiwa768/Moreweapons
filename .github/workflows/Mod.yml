@@ -3,36 +3,35 @@ name: Build and Upload Mod
 on:
   push:
     branches:
-      - main  # 例えば、mainブランチにpushされた時に実行
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    # リポジトリのコードをチェックアウト
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # リポジトリをチェックアウト (secrets.TOKEN を使用)
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.TOKEN }}
 
-    # JDKのセットアップ (Java 17を使用)
-    - name: Set up JDK 17
-      uses: actions/setup-java@v2
-      with:
-        java-version: '17'
-        distribution: 'adoptopenjdk'
+      # JDK 17をセットアップ (temurinを指定)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
 
-    # Gradleをセットアップ (Gradle Wrapperが必要)
-    - name: Set up Gradle
-      uses: gradle/wrapper-validation-action@v1
+      # Gradleでビルド
+      - name: Build with Gradle
+        run: ./gradlew build
 
-    # Gradleを使ってビルド
-    - name: Build with Gradle
-      run: ./gradlew build
-
-    # ビルドが成功した場合、アーティファクトをアップロード
-    - name: Upload Mod JAR to GitHub Release
-      if: success()
-      uses: softprops/action-gh-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}  # リポジトリのシークレットトークン
-      witname: Build and Upload Mod
+      # ビルドされたJARをアーティファクトとしてアップロード (secrets.TOKEN を使用)
+      - name: Upload JAR as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: mod-jar
+          path: build/libs/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
