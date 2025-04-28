@@ -14,7 +14,7 @@
     "environment": "client",
     "entrypoints": {
         "main": [
-            "com.sakalti.moreweapons.MoreWeapons"
+            "java.com.sakalti.moreweapons.moreweapons"
         ]
     },
     "depends": {
