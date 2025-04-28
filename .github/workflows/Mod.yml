@@ -35,5 +35,4 @@ jobs:
       uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}  # リポジトリのシークレットトークン
-      with:
-        files: build/libs/*.jar  # ビルドされたJARファイルをアップロード
+      witname: Build and Upload Mod
