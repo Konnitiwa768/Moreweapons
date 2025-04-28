@@ -1,4 +1,4 @@
-name: Build and Upload Mod from moreweapons folder
+name: Build and Upload Mod with moreweapons folder
 
 on:
   push:
@@ -20,6 +20,13 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+
+    # `moreweapons` フォルダを作成し、必要なファイルを移動
+    - name: Create moreweapons folder and move files
+      run: |
+        mkdir -p moreweapons/src  # `moreweapons` フォルダと `src` フォルダを作成
+        mv src/* moreweapons/src/  # `src` フォルダの中身を移動
+        mv pom.xml moreweapons/  # `pom.xml` を `moreweapons` フォルダに移動
 
     # `moreweapons` フォルダに移動してビルド
     - name: Build with Maven from moreweapons folder
