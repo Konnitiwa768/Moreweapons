@@ -3,35 +3,32 @@ name: Build and Upload Mod
 on:
   push:
     branches:
-      - main
+      - main  # mainブランチにpushされた時に実行
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # リポジトリをチェックアウト (secrets.TOKEN を使用)
+      # リポジトリのコードをチェックアウト
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.TOKEN }}
 
-      # JDK 17をセットアップ (temurinを指定)
+      # Java 17 (Temurin) をセットアップ
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'temurin'
+          distribution: 'temurin'  # adoptopenjdkではなくtemurinに変更！
 
       # Gradleでビルド
       - name: Build with Gradle
         run: ./gradlew build
 
-      # ビルドされたJARをアーティファクトとしてアップロード (secrets.TOKEN を使用)
-      - name: Upload JAR as Artifact
-        uses: actions/upload-artifact@v3
+      # ビルドが成功したらJARファイルをアップロード
+      - name: Upload JAR to GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: mod-jar
-          path: build/libs/*.jar
+          files: build/libs/*.jar  # JARファイルをアップロード
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # GitHub SecretsのTOKENを使用
