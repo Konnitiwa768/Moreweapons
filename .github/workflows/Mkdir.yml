@@ -27,4 +27,4 @@ jobs:
       with:
         files: moreweapons/target/*.jar  # `moreweapons` 内のビルドされたJARファイルをアップロード
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub SecretsのTOKENを使用
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}  # GitHub SecretsのTOKENを使用
