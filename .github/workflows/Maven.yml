@@ -23,7 +23,7 @@ jobs:
 
     # Mavenを使用してビルド
     - name: Build with Maven
-      run: mvn clean install
+      run: mvn -f ./pom.xml clean install  # `pom.xml` のパスを明示的に指定
 
     # ビルドしたJARファイルをGitHub Releaseにアップロード
     - name: Upload JAR to GitHub Release
@@ -31,4 +31,4 @@ jobs:
       with:
         files: target/*.jar  # ビルドされたJARファイルをアップロード
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}  # GitHub SecretsのTOKENを使用
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub SecretsのTOKENを使用
