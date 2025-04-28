@@ -1,4 +1,33 @@
+plugins {
+    id 'fabric-loom' version '0.10-SNAPSHOT'  // Fabric Loomプラグインを使う
+    id 'maven-publish'
+}
+
+group = 'com.yourname.moreweapons'  // あなたのグループID
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.fabricmc.net' }  // Fabricのリポジトリ
+}
+
 dependencies {
-    // Fabric API
-    modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // Fabric APIを依存関係として追加
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.56.0+1.17'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+tasks {
+    jar {
+        manifest {
+            attributes(
+                'Fabric-Loom-Version': '0.10-SNAPSHOT',
+                'Main-Class': 'com.sakalti.moreweapons.moreweapons'  // メインクラスを指定
+            )
+        }
+    }
 }
