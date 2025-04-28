@@ -25,7 +25,7 @@ tasks {
     jar {
         manifest {
             attributes(
-                'Fabric-Loom-Version': '0.10-SNAPSHOT',
+                'Fabric-Loom-Version': '0.6_local',
                 'Main-Class': 'com.sakalti.moreweapons.moreweapons'  // メインクラスを指定
             )
         }
