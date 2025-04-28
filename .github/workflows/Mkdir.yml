@@ -1,21 +1,30 @@
-name: Create Moreweapons Folder
+name: Move Files and Upload JAR to GitHub Release
 
 on:
   push:
     branches:
-      - main  # mainブランチにpushされたときに実行される
+      - main  # mainブランチにpushされた時に実行
 
 jobs:
-  create-folder:
-    runs-on: ubuntu-latest  # GitHub Actionsのランナー環境としてUbuntuを使用
+  move-and-upload:
+    runs-on: ubuntu-latest
 
     steps:
-    # リポジトリをチェックアウト
+    # リポジトリのコードをチェックアウト
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Moreweapons フォルダを作成する
-    - name: Create Moreweapons folder
+    # `moreweapons` フォルダを作成し、必要なファイルを移動
+    - name: Create moreweapons folder and move files
       run: |
-        mkdir -p Moreweapons  # Moreweaponsフォルダを作成
-        echo "Moreweapons folder created!"  # 作成完了メッセージ
+        mkdir -p moreweapons  # `moreweapons` フォルダと `src` フォルダを作成
+        mv src/* moreweapons  # `src` フォルダの中身を移動
+        mv pom.xml moreweapons/  # `pom.xml` を `moreweapons` フォルダに移動
+
+    # ビルドしたJARファイルをGitHub Releaseにアップロード（ビルドはしません）
+    - name: Upload JAR to GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: moreweapons/target/*.jar  # `moreweapons` 内のビルドされたJARファイルをアップロード
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub SecretsのTOKENを使用
