@@ -9,6 +9,7 @@ import com.sakalti.moreweapons.items.FlowerBladeItem;
 import com.sakalti.moreweapons.items.LaserBladeItem;
 import com.sakalti.moreweapons.items.UnderBladeItem;
 import com.sakalti.moreweapons.items.CoralGreatswordItem;
+import com.sakalti.moreweapons.items.PreciousBladeItem;
 import com.sakalti.moreweapons.items.BentDiamondBladeItem;
 import com.sakalti.moreweapons.items.ChorusBladeItem;
 import com.sakalti.moreweapons.items.DeepslateSwordItem;
@@ -28,6 +29,7 @@ public class MoreWeaponsMod implements ModInitializer {
     public void onInitialize() {
         // 各アイテムの登録
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "flower_blade"), new FlowerBladeItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "precious_blade"), new Precious BladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "emperor_blade"), new EmperorBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "legendary_greatsword"), new LegendaryGreatSwordItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "iron_bow"), new IronBowItem());
