@@ -1,22 +1,6 @@
 package com.sakalti.moreweapons;
 
-import com.sakalti.moreweapons.items.ArmorDestroyerItem;
-import com.sakalti.moreweapons.items.EmperorBladeItem;
-import com.sakalti.moreweapons.items.LegendaryGreatSwordItem;
-import com.sakalti.moreweapons.items.RedAgateItem;
-import com.sakalti.moreweapons.items.MatchlockItem;
-import com.sakalti.moreweapons.items.FlowerBladeItem;
-import com.sakalti.moreweapons.items.LaserBladeItem;
-import com.sakalti.moreweapons.items.UnderBladeItem;
-import com.sakalti.moreweapons.items.CoralGreatswordItem;
-import com.sakalti.moreweapons.items.PreciousBladeItem;
-import com.sakalti.moreweapons.items.BentDiamondBladeItem;
-import com.sakalti.moreweapons.items.ChorusBladeItem;
-import com.sakalti.moreweapons.items.DeepslateSwordItem;
-import com.sakalti.moreweapons.items.NormalRifleItem;
-import com.sakalti.moreweapons.items.ShulkerGreatSwordItem; // シュルカー大剣のインポート
-import com.sakalti.moreweapons.items.DiamondQuarterstaffItem; // ダイヤモンドクアータースタッフのインポート
-import com.sakalti.moreweapons.items.IronBowItem;
+import com.sakalti.moreweapons.items.*;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
@@ -32,6 +16,7 @@ public class MoreWeaponsMod implements ModInitializer {
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "precious_blade"), new Precious BladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "emperor_blade"), new EmperorBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "legendary_greatsword"), new LegendaryGreatSwordItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "corrupted_blade"), new CorruptedBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "iron_bow"), new IronBowItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "matchlock"), new MatchlockItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "armor_destroyer"), new ArmorDestroyerItem());
