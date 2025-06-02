@@ -18,7 +18,7 @@ public class MatchlockItem extends Item {
 
     private long lastUsed = 0;
 
-    public NormalRifleItem() {
+    public MatchlockItem() {
         super(new Settings().group(ItemGroup.COMBAT).maxDamage(950)); // 耐久値950
     }
 
