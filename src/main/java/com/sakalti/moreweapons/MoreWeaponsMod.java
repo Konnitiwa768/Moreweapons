@@ -34,7 +34,7 @@ public class MoreWeaponsMod implements ModInitializer {
     public void onInitialize() {
         // 登録するアイテムの配列。コメントアウトで不要なアイテムは除外可能。
         ItemRegisterInfo[] items = new ItemRegisterInfo[] {
-            // new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
             // new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem()), // 引数なしに変更した場合はクラス修正必要
             new ItemRegisterInfo("precious_blade", new PreciousBladeItem()), // 引数なしコンストラクタ
             new ItemRegisterInfo("emperor_blade", new EmperorBladeItem(new Item.Settings().group(COMBAT))),
