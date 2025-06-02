@@ -7,12 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registry; // Fabric 0.77.0でのRegistryはnet.minecraft.registry下
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
+import net.minecraft.registry.Registry;
 
 public class MoreWeaponsMod implements ModInitializer {
 
@@ -35,8 +32,8 @@ public class MoreWeaponsMod implements ModInitializer {
     public void onInitialize() {
         ItemRegisterInfo[] items = new ItemRegisterInfo[] {
             // new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("precious_blade", new PreciousBladeItem(new Item.Settings().group(COMBAT))),
+            // new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem()), // 引数なしに変更（要クラス修正）
+            new ItemRegisterInfo("precious_blade", new PreciousBladeItem()), // 引数なしに変更（要クラス修正）
             new ItemRegisterInfo("emperor_blade", new EmperorBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("legendary_greatsword", new LegendaryGreatSwordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("corrupted_blade", new CorruptedBladeItem(new Item.Settings().group(COMBAT))),
@@ -51,8 +48,8 @@ public class MoreWeaponsMod implements ModInitializer {
             new ItemRegisterInfo("deepslate_sword", new DeepslateSwordItem(new Item.Settings().group(COMBAT))),
             // new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("shulker_great_sword", new ShulkerGreatSwordItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("blood_agate", new BloodAgateItem(ToolMaterial.DIAMOND, 3, 6.0F, new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterial.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)))
+            new ItemRegisterInfo("blood_agate", new BloodAgateItem(ToolMaterials.DIAMOND, 3, 6.0F, new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterials.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)))
         };
 
         for (ItemRegisterInfo info : items) {
