@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -26,13 +26,13 @@ public class NormalRifleItem extends Item {
     }
 
     @Override
-    public ActionResult use(World world, PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         long currentTime = world.getTime();
         ItemStack stack = user.getStackInHand(hand);
 
         if (currentTime - lastUsed < 5) {
             user.sendMessage(Text.literal("まだ撃てません！クールダウン中です。"), true);
-            return ActionResult.FAIL;
+            return TypedActionResult.fail(stack);
         }
 
         lastUsed = currentTime;
@@ -60,6 +60,6 @@ public class NormalRifleItem extends Item {
 
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
-        return ActionResult.SUCCESS;
+        return TypedActionResult.success(stack);
     }
 }
