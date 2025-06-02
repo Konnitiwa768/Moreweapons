@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.yourname.moreweapons'  // あなたのグループID
+group = 'com.sakalti.moreweapons'  // あなたのグループID
 version = '1.0.0'
 
 repositories {
