@@ -24,7 +24,6 @@ jobs:
           #!/bin/bash
           find src/main/java/com/sakalti/moreweapons/items/ -type f -name "*.java" | while read file; do
             sed -i 's/public \([A-Za-z0-9_]*Item\)()/public \1(Item.Settings settings)/g' "$file"
-            # 必要に応じてsuper()の引数も修正
             sed -i 's/super(new Settings()/super(settings/g' "$file"
           done
 
