@@ -2,7 +2,7 @@ name: Add Gradle Wrapper (main branch)
 
 on:
   push:
-    branches: main
+    branches: A
   workflow_dispatch:
 
 jobs:
