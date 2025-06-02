@@ -50,7 +50,7 @@ public class ArmorDestroyerItem extends SwordItem {
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             ItemStack armor = target.getEquippedStack(slot);
             if (!armor.isEmpty() && armor.isDamageable()) {
-                armor.damage(64 target, (e) -> e.sendEquipmentBreakStatus(slot));
+                armor.damage(64, target, (e) -> e.sendEquipmentBreakStatus(slot));
             }
         }
         return super.postHit(stack, target, attacker);
