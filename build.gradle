@@ -1,6 +1,6 @@
 plugins {
-    id 'java'
     id 'net.minecraftforge.gradle' version '6.0.16'
+    id 'java'
     id 'maven-publish'
 }
 
@@ -61,6 +61,6 @@ publishing {
         }
     }
     repositories {
-        // your repo here
+        // 必要ならここにmavenリポジトリを追加
     }
 }
