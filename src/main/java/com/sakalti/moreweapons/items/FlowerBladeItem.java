@@ -26,7 +26,7 @@ public class FlowerBladeItem extends SwordItem {
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 20, 1));
         }
