@@ -57,13 +57,19 @@ public class MoreWeaponsMod implements ModInitializer {
             new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterials.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)))
         };
 
-        // アイテム登録
+        // アイテム登録（try-catchで1つずつ登録、エラー時はそのアイテムだけスキップ）
         for (ItemRegisterInfo info : items) {
-            Registry.register(
-                Registries.ITEM,
-                new Identifier("moreweapons", info.name),
-                info.item
-            );
+            try {
+                Registry.register(
+                    Registries.ITEM,
+                    new Identifier("moreweapons", info.name),
+                    info.item
+                );
+                System.out.println("アイテム " + info.name + " の登録に成功しました。");
+            } catch (Exception e) {
+                System.err.println("アイテム " + info.name + " の登録に失敗しました: " + e.getMessage());
+                e.printStackTrace(); // 詳細なエラー内容を出力
+            }
         }
     }
 }
