@@ -33,7 +33,7 @@ jar {
     manifest {
         attributes(
             'Fabric-Loom-Version': '1.5-SNAPSHOT',
-            'Main-Class': 'com.sakalti.moreweapons.Moreweapons'
+            'Main-Class': 'com.sakalti.moreweapons.MoreWeaponsMod'
         )
     }
 }
