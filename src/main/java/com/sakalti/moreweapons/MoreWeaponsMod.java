@@ -2,73 +2,48 @@ package com.sakalti.moreweapons;
 
 import com.sakalti.moreweapons.items.*;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroup; // 1.19.2での正しいimport
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.Registry; // 1.19.2ではこちら
 
 import net.minecraft.text.Text;
 
 public class MoreWeaponsMod implements ModInitializer {
 
-    public static final String MODID = "moreweapons";
-
-    // 独自のCOMBATグループ定義
     public static final ItemGroup COMBAT = FabricItemGroup.builder()
-        .icon(() -> new ItemStack(Items.DIAMOND_SWORD))
-        .displayName(Text.translatable("itemGroup.moreweapons.combat"))
-        .build();
-
-    private static class ItemRegisterInfo {
-        String name;
-        Item item;
-
-        ItemRegisterInfo(String name, Item item) {
-            this.name = name;
-            this.item = item;
-        }
-    }
+            .icon(() -> new ItemStack(Items.DIAMOND_SWORD))
+            .displayName(Text.literal("moreweapons.combat"))
+            .build();
 
     @Override
     public void onInitialize() {
-        ItemRegisterInfo[] items = new ItemRegisterInfo[] {
-            new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("precious_blade", new PreciousBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("emperor_blade", new EmperorBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("legendary_greatsword", new LegendaryGreatSwordItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("corrupted_blade", new CorruptedBladeItem(new Item.Settings().group(COMBAT))),
-            // new ItemRegisterInfo("iron_bow", new IronBowItem(new Item.Settings().group(COMBAT))),
-            // new ItemRegisterInfo("matchlock", new MatchlockItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("armor_destroyer", new ArmorDestroyerItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("laser_blade", new LaserBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("under_blade", new UnderBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("coral_greatsword", new CoralGreatswordItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("bent_diamond_blade", new BentDiamondBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("chorus_blade", new ChorusBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("deepslate_sword", new DeepslateSwordItem(new Item.Settings().group(COMBAT))),
-            // new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("shulker_great_sword", new ShulkerGreatSwordItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("blood_agate", new BloodAgateItem(ToolMaterials.DIAMOND, 3, 6.0F, new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterials.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)))
-        };
+        register("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT)));
+        register("adventurer_greatsword", new AdventurerGreatswordItem(new Item.Settings().group(COMBAT)));
+        register("precious_blade", new PreciousBladeItem(new Item.Settings().group(COMBAT)));
+        register("emperor_blade", new EmperorBladeItem(new Item.Settings().group(COMBAT)));
+        register("legendary_greatsword", new LegendaryGreatSwordItem(new Item.Settings().group(COMBAT)));
+        register("corrupted_blade", new CorruptedBladeItem(new Item.Settings().group(COMBAT)));
+        register("iron_bow", new IronBowItem(new Item.Settings().group(COMBAT)));
+        register("matchlock", new MatchlockItem(new Item.Settings().group(COMBAT)));
+        register("armor_destroyer", new ArmorDestroyerItem(new Item.Settings().group(COMBAT)));
+        register("laser_blade", new LaserBladeItem(new Item.Settings().group(COMBAT)));
+        register("under_blade", new UnderBladeItem(new Item.Settings().group(COMBAT)));
+        register("coral_greatsword", new CoralGreatswordItem(new Item.Settings().group(COMBAT)));
+        register("bent_diamond_blade", new BentDiamondBladeItem(new Item.Settings().group(COMBAT)));
+        register("chorus_blade", new ChorusBladeItem(new Item.Settings().group(COMBAT)));
+        register("deepslate_sword", new DeepslateSwordItem(new Item.Settings().group(COMBAT)));
+        register("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT)));
+        register("shulker_great_sword", new ShulkerGreatSwordItem(new Item.Settings().group(COMBAT)));
+        register("blood_agate", new BloodAgateItem(ToolMaterials.DIAMOND, 3, 6.0F, new Item.Settings().group(COMBAT)));
+        register("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterials.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)));
+    }
 
-        for (ItemRegisterInfo info : items) {
-            try {
-                Registry.register(
-                    Registry.ITEM,
-                    new Identifier(MODID, info.name),
-                    info.item
-                );
-                System.out.println("アイテム " + info.name + " の登録に成功しました。");
-            } catch (Exception e) {
-                System.err.println("アイテム " + info.name + " の登録に失敗しました: " + e.getMessage());
-                e.printStackTrace();
-            }
-        }
+    private void register(String name, Item item) {
+        Registry.register(Registry.ITEM, new Identifier("moreweapons", name), item);
+        System.out.println("Registered item: " + name);
     }
 }
