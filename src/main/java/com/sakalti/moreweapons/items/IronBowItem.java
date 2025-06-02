@@ -8,6 +8,7 @@ import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
+import net.minecraft.world.RaycastContext; // ← セミコロン追加
 
 public class IronBowItem extends BowItem {
 
@@ -22,7 +23,7 @@ public class IronBowItem extends BowItem {
         }
 
         // 矢を使用するかどうかチェック
-        ItemStack arrowStack = player.getArrowType(stack);
+        ItemStack arrowStack = BowItem.getArrowType(player); // 修正: getArrowTypeはstaticメソッド
         if (arrowStack.isEmpty() && !player.getAbilities().creativeMode) {
             return;
         }
