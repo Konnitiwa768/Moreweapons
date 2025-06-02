@@ -6,7 +6,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 
-public class DiamondQuarterstaffItem extends SwordItem {
+public class DiamondQuarterStaffItem extends SwordItem {
 
     public DiamondQuarterstaffItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
