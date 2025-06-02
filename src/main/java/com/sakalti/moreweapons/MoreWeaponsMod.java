@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -15,86 +15,61 @@ import net.minecraft.util.Identifier;
 
 public class MoreWeaponsMod implements ModInitializer {
 
-    public static final String MOD_ID = "moreweapons";
+    // 独自のCOMBATグループ定義
+    public static final ItemGroup COMBAT = FabricItemGroup.builder()
+        .icon(() -> new ItemStack(Items.DIAMOND_SWORD))
+        .displayName(Text.translatable("itemGroup.moreweapons.combat"))
+        .build();
 
-    // アイテムの静的フィールド宣言
-    public static final Item FLOWER_BLADE = new FlowerBladeItem(new Item.Settings());
-    public static final Item ADVENTURER_GREATSWORD = new AdventurerGreatswordItem(new Item.Settings());
-    public static final Item PRECIOUS_BLADE = new PreciousBladeItem(new Item.Settings());
-    public static final Item EMPEROR_BLADE = new EmperorBladeItem(new Item.Settings());
-    public static final Item LEGENDARY_GREATSWORD = new LegendaryGreatSwordItem(new Item.Settings());
-    public static final Item CORRUPTED_BLADE = new CorruptedBladeItem(new Item.Settings());
-    public static final Item IRON_BOW = new IronBowItem(new Item.Settings());
-    public static final Item MATCHLOCK = new MatchlockItem(new Item.Settings());
-    public static final Item ARMOR_DESTROYER = new ArmorDestroyerItem(new Item.Settings());
-    public static final Item LASER_BLADE = new LaserBladeItem(new Item.Settings());
-    public static final Item UNDER_BLADE = new UnderBladeItem(new Item.Settings());
-    public static final Item CORAL_GREATSWORD = new CoralGreatswordItem(new Item.Settings());
-    public static final Item BENT_DIAMOND_BLADE = new BentDiamondBladeItem(new Item.Settings());
-    public static final Item CHORUS_BLADE = new ChorusBladeItem(new Item.Settings());
-    public static final Item DEEPSLATE_SWORD = new DeepslateSwordItem(new Item.Settings());
-    public static final Item NORMAL_RIFLE = new NormalRifleItem(new Item.Settings());
-    public static final Item SHULKER_GREAT_SWORD = new ShulkerGreatSwordItem(new Item.Settings());
-    public static final Item BLOOD_AGATE = new BloodAgateItem(ToolMaterial.DIAMOND, 3, 6.0F, new Item.Settings());
-    public static final Item DIAMOND_QUARTERSTAFF = new DiamondQuarterStaffItem(ToolMaterial.DIAMOND, 3, 2.0F, new Item.Settings());
+    // アイテム情報をまとめるための内部クラス
+    private static class ItemRegisterInfo {
+        String name;
+        Item item;
 
-    // カスタムアイテムグループ登録
-    public static final ItemGroup COMBAT_GROUP = Registry.register(
-        Registries.ITEM_GROUP,
-        new Identifier(MOD_ID, "combat"),
-        FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.moreweapons.combat"))
-            .icon(() -> new ItemStack(Items.DIAMOND_SWORD))
-            .entries((context, entries) -> {
-                entries.add(FLOWER_BLADE);
-                entries.add(ADVENTURER_GREATSWORD);
-                entries.add(PRECIOUS_BLADE);
-                entries.add(EMPEROR_BLADE);
-                entries.add(LEGENDARY_GREATSWORD);
-                entries.add(CORRUPTED_BLADE);
-                entries.add(IRON_BOW);
-                entries.add(MATCHLOCK);
-                entries.add(ARMOR_DESTROYER);
-                entries.add(LASER_BLADE);
-                entries.add(UNDER_BLADE);
-                entries.add(CORAL_GREATSWORD);
-                entries.add(BENT_DIAMOND_BLADE);
-                entries.add(CHORUS_BLADE);
-                entries.add(DEEPSLATE_SWORD);
-                entries.add(NORMAL_RIFLE);
-                entries.add(SHULKER_GREAT_SWORD);
-                entries.add(BLOOD_AGATE);
-                entries.add(DIAMOND_QUARTERSTAFF);
-            })
-            .build()
-    );
+        ItemRegisterInfo(String name, Item item) {
+            this.name = name;
+            this.item = item;
+        }
+    }
 
     @Override
     public void onInitialize() {
-        register("flower_blade", FLOWER_BLADE);
-        register("adventurer_greatsword", ADVENTURER_GREATSWORD);
-        register("precious_blade", PRECIOUS_BLADE);
-        register("emperor_blade", EMPEROR_BLADE);
-        register("legendary_greatsword", LEGENDARY_GREATSWORD);
-        register("corrupted_blade", CORRUPTED_BLADE);
-        register("iron_bow", IRON_BOW);
-        register("matchlock", MATCHLOCK);
-        register("armor_destroyer", ARMOR_DESTROYER);
-        register("laser_blade", LASER_BLADE);
-        register("under_blade", UNDER_BLADE);
-        register("coral_greatsword", CORAL_GREATSWORD);
-        register("bent_diamond_blade", BENT_DIAMOND_BLADE);
-        register("chorus_blade", CHORUS_BLADE);
-        register("deepslate_sword", DEEPSLATE_SWORD);
-        register("normal_rifle", NORMAL_RIFLE);
-        register("shulker_great_sword", SHULKER_GREAT_SWORD);
-        register("blood_agate", BLOOD_AGATE);
-        register("diamond_quarterstaff", DIAMOND_QUARTERSTAFF);
 
-        System.out.println("MoreWeapons Mod initialized.");
-    }
+        ItemRegisterInfo[] items = new ItemRegisterInfo[] {
+            new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("precious_blade", new PreciousBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("emperor_blade", new EmperorBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("legendary_greatsword", new LegendaryGreatSwordItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("corrupted_blade", new CorruptedBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("iron_bow", new IronBowItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("matchlock", new MatchlockItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("armor_destroyer", new ArmorDestroyerItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("laser_blade", new LaserBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("under_blade", new UnderBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("coral_greatsword", new CoralGreatswordItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("bent_diamond_blade", new BentDiamondBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("chorus_blade", new ChorusBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("deepslate_sword", new DeepslateSwordItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("shulker_great_sword", new ShulkerGreatSwordItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("blood_agate", new BloodAgateItem(ToolMaterials.DIAMOND, 3, 6.0F, new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterials.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)))
+        };
 
-    private static void register(String name, Item item) {
-        Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), item);
+        // アイテム登録（try-catchで1つずつ登録、エラー時はそのアイテムだけスキップ）
+        for (ItemRegisterInfo info : items) {
+            try {
+                Registry.register(
+                    Registries.ITEM,
+                    new Identifier("moreweapons", info.name),
+                    info.item
+                );
+                System.out.println("アイテム " + info.name + " の登録に成功しました。");
+            } catch (Exception e) {
+                System.err.println("アイテム " + info.name + " の登録に失敗しました: " + e.getMessage());
+                e.printStackTrace(); // 詳細なエラー内容を出力
+            }
+        }
     }
 }
