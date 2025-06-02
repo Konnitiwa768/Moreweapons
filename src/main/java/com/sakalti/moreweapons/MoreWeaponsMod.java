@@ -44,7 +44,7 @@ public class MoreWeaponsMod implements ModInitializer {
             // new ItemRegisterInfo("matchlock", new MatchlockItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("armor_destroyer", new ArmorDestroyerItem(new Item.Settings().group(COMBAT))),
             // new ItemRegisterInfo("laser_blade", new LaserBladeItem(new Item.Settings().group(COMBAT))),
-            // new ItemRegisterInfo("under_blade", new UnderBladeItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("under_blade", new UnderBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("coral_greatsword", new CoralGreatswordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("bent_diamond_blade", new BentDiamondBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("chorus_blade", new ChorusBladeItem(new Item.Settings().group(COMBAT))),
