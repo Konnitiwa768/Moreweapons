@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - A
     tags:
       - '*'  # タグpushも検知する（リリース用にも使うため）
 
