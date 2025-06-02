@@ -21,8 +21,8 @@ public class NormalRifleItem extends Item {
 
     private long lastUsed = 0;
 
-    public NormalRifleItem() {
-        super(new Settings().group(MoreWeaponsMod.COMBAT).maxDamage(1345));
+    public NormalRifleItem(Settings settings) {
+        super(settings.maxDamage(1345).group(MoreWeaponsMod.COMBAT));
     }
 
     @Override
