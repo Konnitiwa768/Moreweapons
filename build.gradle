@@ -33,8 +33,62 @@ configurations.all {
 jar {
     manifest {
         attributes(
+            'Fabricplugins {
+    id 'fabric-loom' version '1.5-SNAPSHOT'
+    id 'maven-publish'
+}
+
+group = 'com.sakalti.moreweapons'
+version = '1.0.0'
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net' }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.19.2"
+    mappings "net.fabricmc:yarn:1.19.2+build.28:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.14.0"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.75.3+1.19.2"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'io.netty:netty-transport-native-epoll:4.1.82.Final'
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    from("LICENSE") {
+        rename { "LICENSE_${project.archivesBaseName}" }
+    }
+    manifest {
+        attributes(
             'Fabric-Loom-Version': '1.5-SNAPSHOT',
             'Main-Class': 'com.sakalti.moreweapons.MoreWeaponsMod'
         )
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = project.archivesBaseName
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
     }
 }
