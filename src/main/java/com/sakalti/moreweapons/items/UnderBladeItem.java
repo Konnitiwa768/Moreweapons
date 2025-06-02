@@ -4,18 +4,18 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.item.Items;
 
 public class UnderBladeItem extends SwordItem {
-    public UnderBladeItem() {
+    public UnderBladeItem(Settings settings) {
         super(new ToolMaterial() {
             @Override
             public int getDurability() {
-                return 1667; // 耐久1667
+                return 1667;
             }
 
             @Override
@@ -25,7 +25,7 @@ public class UnderBladeItem extends SwordItem {
 
             @Override
             public float getAttackDamage() {
-                return 7.0F; // 攻撃力7
+                return 7.0F;
             }
 
             @Override
@@ -40,13 +40,14 @@ public class UnderBladeItem extends SwordItem {
 
             @Override
             public Ingredient getRepairIngredient() {
-                return Ingredient.ofItems(Items.OBSIDIAN); // 修理アイテム
+                // クダサンゴブロック
+                return Ingredient.ofItems(Items.TUBE_CORAL_BLOCK);
             }
-        }, 0, 2.0F, new Settings().group(ItemGroup.COMBAT));
+        }, 0, 2.0F, settings);
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public ActionResult<ItemStack> use(World world, net.minecraft.entity.player.PlayerEntity user, Hand hand) {
         return super.use(world, user, hand);
     }
 }
