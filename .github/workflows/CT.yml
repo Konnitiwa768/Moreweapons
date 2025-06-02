@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - 'src/main/java/com/sakalti/moreweapons/items/*.java'
+    branches:
+      - test
 
 jobs:
   fix-constructors:
