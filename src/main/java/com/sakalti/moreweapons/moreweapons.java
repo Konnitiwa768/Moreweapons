@@ -13,6 +13,7 @@ public class MoreWeaponsMod implements ModInitializer {
     public void onInitialize() {
         // 各アイテムの登録
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "flower_blade"), new FlowerBladeItem());
+        Registry.register(Registries.ITEM, new Identifier("moreweapons", "adventurer_greatsword"), new AdventurerGreatswordItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "precious_blade"), new Precious BladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "emperor_blade"), new EmperorBladeItem());
         Registry.register(Registries.ITEM, new Identifier("moreweapons", "legendary_greatsword"), new LegendaryGreatSwordItem());
