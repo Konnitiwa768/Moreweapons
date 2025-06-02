@@ -8,30 +8,24 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterials;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.minecraft.util.registry.Registry;
+
+import net.minecraft.text.Text;
 
 public class MoreWeaponsMod implements ModInitializer {
 
     public static final String MODID = "moreweapons";
 
-    // ロガーの取得
-    public static final Logger LOGGER = LoggerFactory.getLogger(MoreWeaponsMod.class);
-
-    // 独自のCOMBATアイテムグループ
+    // 独自のCOMBATグループ定義
     public static final ItemGroup COMBAT = FabricItemGroup.builder()
         .icon(() -> new ItemStack(Items.DIAMOND_SWORD))
         .displayName(Text.translatable("itemGroup.moreweapons.combat"))
         .build();
 
-    // アイテム情報をまとめる内部クラス
     private static class ItemRegisterInfo {
-        final String name;
-        final Item item;
+        String name;
+        Item item;
 
         ItemRegisterInfo(String name, Item item) {
             this.name = name;
@@ -66,13 +60,14 @@ public class MoreWeaponsMod implements ModInitializer {
         for (ItemRegisterInfo info : items) {
             try {
                 Registry.register(
-                    Registries.ITEM,
+                    Registry.ITEM,
                     new Identifier(MODID, info.name),
                     info.item
                 );
-                LOGGER.info("アイテム '{}' の登録に成功しました。", info.name);
+                System.out.println("アイテム " + info.name + " の登録に成功しました。");
             } catch (Exception e) {
-                LOGGER.error("アイテム '{}' の登録に失敗しました。", info.name, e);
+                System.err.println("アイテム " + info.name + " の登録に失敗しました: " + e.getMessage());
+                e.printStackTrace();
             }
         }
     }
