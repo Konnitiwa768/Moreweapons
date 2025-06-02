@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -26,13 +26,13 @@ public class MatchlockItem extends Item {
     }
 
     @Override
-    public ActionResult use(World world, PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         long currentTime = world.getTime();
         ItemStack stack = user.getStackInHand(hand);
 
         if (currentTime - lastUsed < 60) {
             user.sendMessage(Text.literal("まだ撃てません！クールダウン中です。"), true);
-            return ActionResult.FAIL;
+            return TypedActionResult.fail(stack);
         }
 
         lastUsed = currentTime;
@@ -42,7 +42,6 @@ public class MatchlockItem extends Item {
         Vec3d endPos = eyePos.add(lookDirection.multiply(25));
         Box box = new Box(eyePos, endPos).expand(1.0D, 1.0D, 1.0D);
 
-        // RaycastContextのパッケージを修正
         RaycastContext raycastContext = new RaycastContext(
             eyePos, endPos, RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.NONE, user
         );
@@ -61,6 +60,6 @@ public class MatchlockItem extends Item {
 
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
-        return ActionResult.SUCCESS;
+        return TypedActionResult.success(stack);
     }
 }
