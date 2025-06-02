@@ -12,19 +12,26 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MoreWeaponsMod implements ModInitializer {
 
-    // 独自のCOMBATグループ定義
+    public static final String MODID = "moreweapons";
+
+    // ロガーの取得
+    public static final Logger LOGGER = LoggerFactory.getLogger(MoreWeaponsMod.class);
+
+    // 独自のCOMBATアイテムグループ
     public static final ItemGroup COMBAT = FabricItemGroup.builder()
         .icon(() -> new ItemStack(Items.DIAMOND_SWORD))
         .displayName(Text.translatable("itemGroup.moreweapons.combat"))
         .build();
 
-    // アイテム情報をまとめるための内部クラス
+    // アイテム情報をまとめる内部クラス
     private static class ItemRegisterInfo {
-        String name;
-        Item item;
+        final String name;
+        final Item item;
 
         ItemRegisterInfo(String name, Item item) {
             this.name = name;
@@ -34,7 +41,6 @@ public class MoreWeaponsMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
         ItemRegisterInfo[] items = new ItemRegisterInfo[] {
             new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem(new Item.Settings().group(COMBAT))),
@@ -57,18 +63,16 @@ public class MoreWeaponsMod implements ModInitializer {
             new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterials.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)))
         };
 
-        // アイテム登録（try-catchで1つずつ登録、エラー時はそのアイテムだけスキップ）
         for (ItemRegisterInfo info : items) {
             try {
                 Registry.register(
                     Registries.ITEM,
-                    new Identifier("moreweapons", info.name),
+                    new Identifier(MODID, info.name),
                     info.item
                 );
-                System.out.println("アイテム " + info.name + " の登録に成功しました。");
+                LOGGER.info("アイテム '{}' の登録に成功しました。", info.name);
             } catch (Exception e) {
-                System.err.println("アイテム " + info.name + " の登録に失敗しました: " + e.getMessage());
-                e.printStackTrace(); // 詳細なエラー内容を出力
+                LOGGER.error("アイテム '{}' の登録に失敗しました。", info.name, e);
             }
         }
     }
