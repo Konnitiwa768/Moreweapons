@@ -36,7 +36,7 @@ public class CoralGreatswordItem extends SwordItem {
 
             @Override
             public Ingredient getRepairIngredient() {
-                return Ingredient.ofItems(Items.CORAL_BLOCK); // 修理アイテム: 珊瑚ブロック
+                return Ingredient.ofItems(Items.TUBE_CORAL_BLOCK); TUBE_// 修理アイテム: 珊瑚ブロック
             }
         }, 0, -3.0F, new Settings().group(ItemGroup.COMBAT));
     }
