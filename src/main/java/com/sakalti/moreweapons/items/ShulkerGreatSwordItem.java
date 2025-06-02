@@ -5,8 +5,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import com.sakalti.moreweapons.MoreWeaponsMod;
 import java.util.List;
@@ -25,7 +25,7 @@ public class ShulkerGreatSwordItem extends Item {
     // 攻撃力や攻撃速度のカスタムが必要な場合はAttributeModifierを使いましょう
 
     @Override
-    public ActionResult use(World world, PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if (!world.isClient) {
             int sharpnessLevel = stack.getEnchantments().stream()
@@ -38,7 +38,7 @@ public class ShulkerGreatSwordItem extends Item {
                 // 実際のダメージ計算は攻撃部分に適用する必要あり
             }
         }
-        return ActionResult.SUCCESS;
+        return TypedActionResult.success(stack);
     }
 
     @Override
