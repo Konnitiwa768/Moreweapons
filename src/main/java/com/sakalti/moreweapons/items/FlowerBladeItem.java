@@ -1,20 +1,20 @@
 package com.sakalti.moreweapons.items;
 
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
 
 public class FlowerBladeItem extends SwordItem {
-    public FlowerBladeItem(Settings settings) {
+
+    public FlowerBladeItem() {
         super(new ToolMaterial() {
             @Override public int getDurability() { return 1000; }
             @Override public float getMiningSpeedMultiplier() { return 1.0F; }
@@ -22,14 +22,15 @@ public class FlowerBladeItem extends SwordItem {
             @Override public int getMiningLevel() { return 2; }
             @Override public int getEnchantability() { return 15; }
             @Override public Ingredient getRepairIngredient() { return Ingredient.ofItems(Items.FLOWER_POT); }
-        }, 0, -2.2F, settings.group(ItemGroup.COMBAT));
+        }, 0, -2.2F, new Item.Settings().group(ItemGroup.COMBAT));
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        World world = target.getWorld();
         if (!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 20, 1));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 60, 1)); // 3秒間ポイズンII
         }
-        return super.use(world, user, hand);
+        return super.postHit(stack, target, attacker);
     }
 }
