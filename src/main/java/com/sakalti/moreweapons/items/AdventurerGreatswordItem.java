@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 public class AdventurerGreatswordItem extends SwordItem {
     public AdventurerGreatswordItem() {
         super(new ToolMaterial() {
-            @Override public int getDurability() { return 2032; } // ネザライト相当
+            @Override public int getDurability() { return 2032; }
             @Override public float getMiningSpeedMultiplier() { return 1.0F; }
             @Override public float getAttackDamage() { return 14.0F; }
             @Override public int getMiningLevel() { return 4; }
@@ -25,7 +25,10 @@ public class AdventurerGreatswordItem extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         float missingHealth = target.getMaxHealth() - target.getHealth();
         float extra = Math.min(6.0F, missingHealth * 0.25F); // 体力が減るほど追加ダメージ（最大+6）
-        target.damage(target.getDamageSources().playerAttack((PlayerEntity)attacker), extra);
+        // 安全のためPlayerEntityかどうかチェックする
+        if (attacker instanceof PlayerEntity player) {
+            target.damage(target.getDamageSources().playerAttack(player), extra);
+        }
         return super.postHit(stack, target, attacker);
     }
 }
