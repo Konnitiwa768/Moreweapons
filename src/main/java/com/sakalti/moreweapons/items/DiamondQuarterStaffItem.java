@@ -6,6 +6,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.util.Hand;
 
 public class DiamondQuarterStaffItem extends SwordItem {
 
@@ -19,27 +20,26 @@ public class DiamondQuarterStaffItem extends SwordItem {
         if (target instanceof PlayerEntity) {
             armorValue = ((PlayerEntity) target).getArmor();
         } else {
-            // プレイヤー以外の場合、armor値が必要なら独自実装か、0として扱う
-            armorValue = 0; // getArmor()がない場合は0に
+            armorValue = 0;
         }
 
-        // attackerがPlayerEntityならDamageSource.playerを使う
         if (attacker instanceof PlayerEntity playerAttacker) {
             if (armorValue >= 3) {
                 target.damage(DamageSource.player(playerAttacker), 7.0F);
             } else {
                 target.damage(DamageSource.player(playerAttacker), 8.5F);
             }
+            // PlayerEntity なら getMainHand() に近い動作として Hand.MAIN_HAND を明示
+            stack.damage(1, playerAttacker, (e) -> e.sendToolBreakStatus(Hand.MAIN_HAND));
         } else {
-            // それ以外は通常の汎用攻撃
             if (armorValue >= 3) {
                 target.damage(DamageSource.GENERIC, 7.0F);
             } else {
                 target.damage(DamageSource.GENERIC, 8.5F);
             }
+            // LivingEntity には sendToolBreakStatus も getActiveHand もないので耐久値だけ減らす
+            stack.damage(1, attacker, (e) -> {});
         }
-
-        stack.damage(1, attacker, (e) -> e.sendToolBreakStatus(attacker.getActiveHand()));
         return super.postHit(stack, target, attacker);
     }
 }
