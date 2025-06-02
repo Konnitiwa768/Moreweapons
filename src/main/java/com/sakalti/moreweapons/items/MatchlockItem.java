@@ -21,8 +21,8 @@ public class MatchlockItem extends Item {
 
     private long lastUsed = 0;
 
-    public MatchlockItem() {
-        super(new Settings().group(MoreWeaponsMod.COMBAT).maxDamage(950));
+    public MatchlockItem(Settings settings) {
+        super(settings.maxDamage(950).group(MoreWeaponsMod.COMBAT));
     }
 
     @Override
