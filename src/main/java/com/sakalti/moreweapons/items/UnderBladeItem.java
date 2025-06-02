@@ -47,7 +47,7 @@ public class UnderBladeItem extends SwordItem {
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, net.minecraft.entity.player.PlayerEntity user, Hand hand) {
+    public TypedActionResult<ItemStack> use(World world, net.minecraft.entity.player.PlayerEntity user, Hand hand) {
         return super.use(world, user, hand);
     }
 }
