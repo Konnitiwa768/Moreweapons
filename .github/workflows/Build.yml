@@ -33,3 +33,27 @@ jobs:
         with:
           name: built-jar
           path: build/libs/*.jar
+
+      - name: Upload to CurseForge
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          CF_GAME_VERSION: ${{ secrets.GAME_VERSION }}
+        run: |
+          JAR_PATH=$(find build/libs -name "*.jar" | head -n 1)
+
+          if [ -z "$JAR_PATH" ]; then
+            echo "No JAR file found in build/libs"
+            exit 1
+          fi
+
+          echo "Uploading $JAR_PATH to CurseForge..."
+
+          curl -X POST "https://minecraft.curseforge.com/api/v1/mods/${CF_PROJECT_ID}/files" \
+            -H "x-api-key: ${CF_API_KEY}" \
+            -F "metadata={
+              \"gameVersions\": [\"${CF_GAME_VERSION}\"],
+              \"releaseType\": \"release\",
+              \"displayName\": \"Automated Upload - $(basename "$JAR_PATH")\"
+            };type=application/json" \
+            -F "file=@${JAR_PATH};type=application/java-archive"
