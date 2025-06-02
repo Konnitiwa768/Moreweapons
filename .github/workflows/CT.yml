@@ -24,8 +24,11 @@ jobs:
       - name: 自動修正スクリプト
         run: |
           #!/bin/bash
+          set -e
           find src/main/java/com/sakalti/moreweapons/items/ -type f -name "*.java" | while read file; do
+            # コンストラクタ引数修正
             sed -i 's/public \([A-Za-z0-9_]*Item\)()/public \1(Item.Settings settings)/g' "$file"
+            # super呼び出し修正
             sed -i 's/super(new Settings()/super(settings/g' "$file"
           done
 
