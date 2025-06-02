@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom' version '1.5-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -7,8 +7,8 @@ group = 'com.sakalti.moreweapons'
 version = '1.0.0'
 
 repositories {
-    mavenCentral()
     maven { url = 'https://maven.fabricmc.net' }
+    mavenCentral()
 }
 
 dependencies {
@@ -18,15 +18,22 @@ dependencies {
 }
 
 java {
-    withJavadocJar()
-    withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'io.netty:netty-transport-native-epoll:4.1.82.Final'
+    }
 }
 
 jar {
     manifest {
         attributes(
-            'Fabric-Loom-Version': '0.10-SNAPSHOT',
-            'Main-Class': 'com.sakalti.moreweapons.moreweapons'
+            'Fabric-Loom-Version': '1.5-SNAPSHOT',
+            'Main-Class': 'com.sakalti.moreweapons.Moreweapons'
         )
     }
 }
