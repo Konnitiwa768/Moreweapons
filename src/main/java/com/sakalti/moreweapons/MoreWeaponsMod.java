@@ -34,22 +34,22 @@ public class MoreWeaponsMod implements ModInitializer {
     @Override
     public void onInitialize() {
         ItemRegisterInfo[] items = new ItemRegisterInfo[] {
-            new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
+            // new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("precious_blade", new PreciousBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("emperor_blade", new EmperorBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("legendary_greatsword", new LegendaryGreatSwordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("corrupted_blade", new CorruptedBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("iron_bow", new IronBowItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("matchlock", new MatchlockItem(new Item.Settings().group(COMBAT))),
+            // new ItemRegisterInfo("iron_bow", new IronBowItem(new Item.Settings().group(COMBAT))),
+            // new ItemRegisterInfo("matchlock", new MatchlockItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("armor_destroyer", new ArmorDestroyerItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("laser_blade", new LaserBladeItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("under_blade", new UnderBladeItem(new Item.Settings().group(COMBAT))),
+            // new ItemRegisterInfo("under_blade", new UnderBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("coral_greatsword", new CoralGreatswordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("bent_diamond_blade", new BentDiamondBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("chorus_blade", new ChorusBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("deepslate_sword", new DeepslateSwordItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
+            // new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("shulker_great_sword", new ShulkerGreatSwordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("blood_agate", new BloodAgateItem(ToolMaterial.DIAMOND, 3, 6.0F, new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(ToolMaterial.DIAMOND, 3, 2.0F, new Item.Settings().group(COMBAT)))
