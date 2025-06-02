@@ -41,7 +41,7 @@ public class UnderBladeItem extends SwordItem {
             @Override
             public Ingredient getRepairIngredient() {
                 // クダサンゴブロック
-                return Ingredient.ofItems(Items.TUBE_CORAL_BLOCK);
+                return Ingredient.ofItems(Items.OBSIDIAN);
             }
         }, 0, 2.0F, settings);
     }
