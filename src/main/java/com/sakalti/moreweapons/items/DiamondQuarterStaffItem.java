@@ -20,15 +20,25 @@ public class DiamondQuarterStaffItem extends SwordItem {
             armorValue = ((PlayerEntity) target).getArmor();
         } else {
             // プレイヤー以外の場合、armor値が必要なら独自実装か、0として扱う
-            armorValue = target.getArmor(); // もしgetArmor()が使えなければ、0固定でもOK
+            armorValue = 0; // getArmor()がない場合は0に
         }
 
-        if (armorValue >= 3) {
-            target.damage(DamageSource.player(attacker), 7.0F); // 防具が3以上の敵にはダイヤの剣のダメージ
+        // attackerがPlayerEntityならDamageSource.playerを使う
+        if (attacker instanceof PlayerEntity playerAttacker) {
+            if (armorValue >= 3) {
+                target.damage(DamageSource.player(playerAttacker), 7.0F);
+            } else {
+                target.damage(DamageSource.player(playerAttacker), 8.5F);
+            }
         } else {
-            target.damage(DamageSource.player(attacker), 8.5F); // 通常時のダメージ
+            // それ以外は通常の汎用攻撃
+            if (armorValue >= 3) {
+                target.damage(DamageSource.GENERIC, 7.0F);
+            } else {
+                target.damage(DamageSource.GENERIC, 8.5F);
+            }
         }
-        // 剣としての耐久値を消費
+
         stack.damage(1, attacker, (e) -> e.sendToolBreakStatus(attacker.getActiveHand()));
         return super.postHit(stack, target, attacker);
     }
