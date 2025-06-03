@@ -2,6 +2,7 @@ package com.sakalti.moreweapons.items;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.experience.ExperienceOrbEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ItemStack;
@@ -19,14 +20,21 @@ public class LapisTridentItem extends SwordItem {
             @Override public Ingredient getRepairIngredient() {
                 return Ingredient.ofItems(Items.LAPIS_LAZULI);
             }
-        }, 3, -2.9F , settings); // base 4 + attack damage 8 - 3 = 攻撃速度調整 (この辺り調整可)
+        }, 3, -2.8F, settings); // 攻撃速度 = 1.2（→ modifierは-1.2F）
     }
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (!target.getWorld().isClient() && attacker instanceof PlayerEntity player) {
-            // 経験値を与える
-            player.giveExperiencePoints(3); // 3XP付与（調整可）
+            // 経験値オーブをスポーンさせる（位置はプレイヤー座標）
+            ExperienceOrbEntity orb = new ExperienceOrbEntity(
+                target.getWorld(),
+                player.getX(),
+                player.getY() + 0.5,
+                player.getZ(),
+                3 // 付与する経験値量
+            );
+            target.getWorld().spawnEntity(orb);
         }
         return super.postHit(stack, target, attacker);
     }
