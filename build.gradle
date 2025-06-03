@@ -40,12 +40,11 @@ jar {
     }
 }
 
-// CurseForgeアップロード設定
 curseforge {
-    apiKey = System.getenv("CF_API_KEY") // GitHub Actions用
+    apiKey = System.getenv("CF_API_KEY")
     project {
-        id = System.getenv("CF_PROJECT_ID") // GitHub Secretsで設定
-        changelog = "See GitHub releases."
+        id = 884467  // ← ここを「実際の CurseForge プロジェクトIDの数字」に置き換える
+        changelog = "Initial release"
         releaseType = "release"
         addGameVersion("1.19.2")
         mainArtifact(remapJar) {
