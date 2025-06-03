@@ -19,7 +19,7 @@ public class LapisTridentItem extends SwordItem {
             @Override public Ingredient getRepairIngredient() {
                 return Ingredient.ofItems(Items.LAPIS_LAZULI);
             }
-        }, 3, -1.8F + 1.2F, settings); // base 4 + attack damage 8 - 3 = 攻撃速度調整 (この辺り調整可)
+        }, 3, -2.9F , settings); // base 4 + attack damage 8 - 3 = 攻撃速度調整 (この辺り調整可)
     }
 
     @Override
