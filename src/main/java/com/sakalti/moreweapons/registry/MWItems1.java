@@ -51,7 +51,7 @@ public class MWItems1 {
             new ItemRegisterInfo("chorus_blade", new ChorusBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("deepslate_sword", new DeepslateSwordItem(new Item.Settings().group(COMBAT))),
             // new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
-            new ItemRegisterInfo("shulker_great_sword", new ShulkerGreatSwordItem(new Item.Settings().group(COMBAT))),
+            // new ItemRegisterInfo("shulker_great_sword", new ShulkerGreatSwordItem(new Item.Settings().group(COMBAT))),
             // ToolMaterials.DIAMONDは標準ツール素材。攻撃力3、攻撃速度6.0Fなどのカスタム値を渡す例
             // new ItemRegisterInfo("blood_agate", new BloodAgateItem(ToolMaterials.DIAMOND, 3, 6.0F, new Item.Settings().group(COMBAT))),
             // new ItemRegisterInfo("diamond_quarterstaff", new DiamondQuarterStaffItem(new Item.Settings().group(COMBAT))),
