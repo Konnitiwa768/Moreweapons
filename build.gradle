@@ -1,7 +1,7 @@
 plugins {
     id 'fabric-loom' version '1.5-SNAPSHOT'
     id 'maven-publish'
-    id 'com.matthewprenger.cursegradle' version '1.4.0' // CurseForgeアップロード用
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
 group = 'com.sakalti.moreweapons'
@@ -40,13 +40,13 @@ jar {
     }
 }
 
-// CurseForge自動アップロード設定
+// CurseForgeアップロード設定
 curseforge {
-    apiKey = System.getenv("CF_API_KEY")
+    apiKey = System.getenv("CF_API_KEY") // GitHub Actions用
     project {
-        id = "YOUR_PROJECT_ID" // CurseForgeプロジェクトIDをここに
-        changelog = file("changelog.txt") // changelog.txt がある場合
-        releaseType = "release" // または beta / alpha
+        id = System.getenv("PROJECT_ID") // GitHub Secretsで設定
+        changelog = "See GitHub releases."
+        releaseType = "release"
         addGameVersion("1.19.2")
         mainArtifact(remapJar) {
             displayName = "MoreWeapons v${version}"
