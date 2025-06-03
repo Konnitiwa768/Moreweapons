@@ -44,7 +44,7 @@ jar {
 curseforge {
     apiKey = System.getenv("CF_API_KEY") // GitHub Actions用
     project {
-        id = System.getenv("PROJECT_ID") // GitHub Secretsで設定
+        id = System.getenv("CF_PROJECT_ID") // GitHub Secretsで設定
         changelog = "See GitHub releases."
         releaseType = "release"
         addGameVersion("1.19.2")
