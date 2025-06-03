@@ -28,7 +28,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build curseforge --info --refresh-dependencies --stacktrace
         env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF: ${{ secrets.CF }}
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
