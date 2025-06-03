@@ -26,15 +26,13 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew clean build remapJar --info
+        run: ./gradlew clean build curseforge --info --refresh-dependencies
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_PROJECT_ID: ${{ secrets.PROJECT_ID }}
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: built-jar
           path: build/libs/*.jar
-
-      - name: Upload to CurseForge
-        env:
-          CF_API_KEY: ${{ secrets.CF_API_KEY }}
-        run: ./gradlew curseforge
