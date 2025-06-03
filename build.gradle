@@ -43,7 +43,7 @@ jar {
 curseforge {
     apiKey = System.getenv("CF_API_KEY")
     project {
-        id = 884467  // ← ここを「実際の CurseForge プロジェクトIDの数字」に置き換える
+        id = "884467"  // ← ここを「実際の CurseForge プロジェクトIDの数字」に置き換える
         changelog = "Initial release"
         releaseType = "release"
         addGameVersion("1.19.2")
