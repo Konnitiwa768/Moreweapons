@@ -26,7 +26,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew clean build curseforge --info --refresh-dependencies
+        run: ./gradlew clean build curseforge --info --refresh-dependencies --stacktrace
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
 
