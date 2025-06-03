@@ -33,6 +33,7 @@ public class MWItems1 {
         ItemRegisterInfo[] items = new ItemRegisterInfo[] {
             new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("lapis_trident", new LapisTridentItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("cerulean_blade", new CeruleanBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("lunar_blade", new LunarBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("flower_rapier", new FlowerRapierItem(new Item.Settings().group(COMBAT))),
             // new ItemRegisterInfo("adventurer_greatsword", new AdventurerGreatswordItem()), // 引数なしに変更
