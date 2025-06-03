@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.sakalti.moreweapons'
+group = 'com.sakalti.takumin'
 version = '1.0.0'
 
 repositories {
@@ -37,7 +37,7 @@ jar {
     manifest {
         attributes(
             'Fabric-Loom-Version': '1.5-SNAPSHOT',
-            'Main-Class': 'com.sakalti.moreweapons.MoreWeaponsMod'
+            'Main-Class': 'com.sakalti.takumin.Takumin'
         )
     }
 }
