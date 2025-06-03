@@ -3,9 +3,11 @@ name: Combine Textures for Resourcepack
 on:
   workflow_dispatch:
   push:
-    paths:
+     branches:
+       - Takumio
+     paths:
       - 'parts/*.png'
-      - '.github/workflows/E.yml'
+      - '.github/workflows/Lu.yml'
       - 'C.py'
 
 jobs:
