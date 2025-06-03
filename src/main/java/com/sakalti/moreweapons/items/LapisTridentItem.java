@@ -2,7 +2,7 @@ package com.sakalti.moreweapons.items;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.experience.ExperienceOrbEntity;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ItemStack;
