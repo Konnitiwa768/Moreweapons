@@ -41,7 +41,7 @@ jar {
 }
 
 curseforge {
-    apiKey = $2a$10$d3bXOYZgsT2XD4kQxK3.l.khOUw5tfVSqfmRFZD6N3LKaFcaU7d6O
+    apiKey = System.getenv("CF")
     project {
         id = "884467"  // ← ここを「実際の CurseForge プロジェクトIDの数字」に置き換える
         changelog = "Initial release"
