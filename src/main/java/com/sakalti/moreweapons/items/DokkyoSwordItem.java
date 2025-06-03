@@ -11,6 +11,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.world.World;
+import net.minecraft.entity.damage.DamageSource;
 
 public class DokkyoSwordItem extends SwordItem {
     public DokkyoSwordItem(Settings settings) {
@@ -23,7 +24,7 @@ public class DokkyoSwordItem extends SwordItem {
             @Override public Ingredient getRepairIngredient() {
                 return Ingredient.ofItems(Items.ROTTEN_FLESH);
             }
-        }, 0, -2.4F + 4.0F, settings.group(ItemGroup.COMBAT)); // 速度1.6相当に調整
+        }, 0, -2.4F + 4.0F, settings.group(ItemGroup.COMBAT)); // 攻撃速度1.6に相当
     }
 
     @Override
@@ -32,7 +33,7 @@ public class DokkyoSwordItem extends SwordItem {
             World world = attacker.getWorld();
             if (!world.isClient) {
                 attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 100, 1)); // 空腹II（5秒）
-                attacker.damage(world.getDamageSources().generic(), 1.0F); // 自傷1ダメージ
+                attacker.damage(DamageSource.GENERIC, 1.0F); // 自傷1ダメージ
             }
         }
         return super.postHit(stack, target, attacker);
