@@ -1,6 +1,7 @@
 plugins {
     id 'fabric-loom' version '1.5-SNAPSHOT'
     id 'maven-publish'
+    id 'com.matthewprenger.cursegradle' version '1.4.0' // CurseForgeアップロード用
 }
 
 group = 'com.sakalti.moreweapons'
@@ -14,10 +15,7 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:1.19.2"
     mappings "net.fabricmc:yarn:1.19.2+build.28:v2"
-
-    // Fabric Loaderを追加
-    modImplementation "net.fabricmc:fabric-loader:0.14.19" // 例：適切なバージョンに置き換えてください
-
+    modImplementation "net.fabricmc:fabric-loader:0.14.19"
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.77.0+1.19.2"
 }
 
@@ -39,5 +37,19 @@ jar {
             'Fabric-Loom-Version': '1.5-SNAPSHOT',
             'Main-Class': 'com.sakalti.moreweapons.MoreWeaponsMod'
         )
+    }
+}
+
+// CurseForge自動アップロード設定
+curseforge {
+    apiKey = System.getenv("CF_API_KEY")
+    project {
+        id = "YOUR_PROJECT_ID" // CurseForgeプロジェクトIDをここに
+        changelog = file("changelog.txt") // changelog.txt がある場合
+        releaseType = "release" // または beta / alpha
+        addGameVersion("1.19.2")
+        mainArtifact(remapJar) {
+            displayName = "MoreWeapons v${version}"
+        }
     }
 }
