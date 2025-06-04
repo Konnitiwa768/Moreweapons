@@ -34,6 +34,7 @@ public class MWItems1 {
             new ItemRegisterInfo("flower_blade", new FlowerBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("dokkyo_sword", new DokkyoSwordItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("hot_shot", new HotShotItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("lapis_trident", new LapisTridentItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("cerulean_blade", new CeruleanBladeItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("lunar_blade", new LunarBladeItem(new Item.Settings().group(COMBAT))),
