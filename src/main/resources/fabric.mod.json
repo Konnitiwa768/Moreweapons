@@ -15,6 +15,9 @@
   "entrypoints": {
     "main": [
       "com.sakalti.moreweapons.MoreWeaponsMod"
+    ],
+    "mixins": [
+      "mixin.moreweapons.json"
     ]
   },
   "depends": {
