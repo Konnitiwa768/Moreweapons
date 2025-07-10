@@ -1,0 +1,45 @@
+name: Sync Fabric & Forge Sources
+
+on:
+  push:
+    branches:
+      - main  # 必要に応じて変更してください
+
+jobs:
+  update-sources:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔍 このリポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: 🗃️ src/ を fabric/ に移動
+        run: |
+          rm -rf fabric
+          mkdir -p fabric
+          if [ -d src ]; then
+            mv src fabric/
+          fi
+
+      - name: 🌐 外部リポジトリ Konnitiwa768/Tconx をクローン
+        run: |
+          git clone --depth 1 https://github.com/Konnitiwa768/Tconx.git temp_repo
+
+      - name: 📂 temp_repo/src を forge/ に移動
+        run: |
+          rm -rf forge
+          mkdir -p forge
+          if [ -d temp_repo/src ]; then
+            mv temp_repo/src forge/
+          fi
+
+      - name: 🧹 一時フォルダを削除
+        run: rm -rf temp_repo
+
+      - name: ✅ 結果をコミット＆プッシュ（自動化用）
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add fabric forge
+          git commit -m "Auto: sync fabric and forge src on push" || echo "No changes to commit"
+          git push
