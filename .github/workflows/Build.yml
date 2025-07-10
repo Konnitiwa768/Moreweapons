@@ -26,8 +26,9 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew clean build --info --refresh-dependencies
-
+        run: 
+          ./gradlew :fabric:build
+          ./gradlew :forge:build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
