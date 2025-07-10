@@ -1,0 +1,52 @@
+group = 'com.sakalti.moreweapons.forge'
+version = '1.0.0'
+
+repositories {
+    maven { url = 'https://maven.minecraftforge.net/' }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.19.2"
+    mappings "net.fabricmc:yarn:1.19.2+build.28:v2"
+    modImplementation "net.minecraftforge:forge:1.19.2-43.2.14"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+plugins {
+    id 'dev.architectury.loom'
+    id 'fabric-loom' version '1.5-SNAPSHOT'
+    id 'maven-publish'
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+}
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+group = 'com.sakalti.moreweapons.fabric'
+version = '1.0.0'
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.19.2"
+    mappings "net.fabricmc:yarn:1.19.2+build.28:v2"
+
+    modImplementation "net.fabricmc:fabric-loader:0.14.19"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.77.0+1.19.2"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
