@@ -1,0 +1,10 @@
+plugins {
+    id 'dev.architectury.loom'
+    id 'maven-publish'
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+}
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
