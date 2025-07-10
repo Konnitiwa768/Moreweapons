@@ -35,6 +35,7 @@ public class MWItems1 {
             new ItemRegisterInfo("diorite_sword", new DioriteSwordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("andesite_sword", new AndesiteSwordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("granite_sword", new GraniteSwordItem(new Item.Settings().group(COMBAT))),
+            new ItemRegisterInfo("bed_sword", new BedSwordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("normal_rifle", new NormalRifleItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("dokkyo_sword", new DokkyoSwordItem(new Item.Settings().group(COMBAT))),
             new ItemRegisterInfo("hot_shot", new HotShotItem(new Item.Settings().group(COMBAT))),
