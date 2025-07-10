@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tconx:hachilite_ore",
+    "tconx:hachilite_block",
+    "tconx:herdyeen_block"
+  ]
+}

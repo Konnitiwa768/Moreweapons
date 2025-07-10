@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "name": "tconstruct:molten_cobalt",
+      "amount": 300
+    },
+    {
+      "name": "tconstruct:molten_iron",
+      "amount": 150
+    }
+  ],
+  "result": {
+    "fluid": "tconx:molten_nehilium",
+    "amount": 50
+  },
+  "temperature": 1425
+}

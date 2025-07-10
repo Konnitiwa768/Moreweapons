@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 7,
+  "sortOrder": 7,
+  "hidden": false,
+  "color": "#66ff99",
+  "fluid": "tconx:molten_ostlum",
+  "translationKey": "material.tconx.ostlum"
+  "traits": [
+    {
+      "name": "tconx:glacial_bind",
+      "level": 3
+    }
+  ]
+}

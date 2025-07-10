@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 5,
+  "sortOrder": 5,
+  "hidden": false,
+  "color": "#996699",
+  "fluid": "tconx:molten_momongaite",
+  "translationKey": "material.tconx.momongaite"
+  "traits": [
+    {
+      "name": "tconx:poisonous_bind",
+      "level": 1
+    }
+  ]
+}

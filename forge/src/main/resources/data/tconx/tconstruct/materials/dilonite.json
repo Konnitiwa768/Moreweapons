@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 6,
+  "sortOrder": 6,
+  "hidden": false,
+  "color": "#ffaa00",
+  "fluid": "tconx:molten_dilonite",
+  "translationKey": "material.tconx.dilonite"
+  "traits": [
+    {
+      "name": "tconx:fire_wall",
+      "level": 1
+    }
+  ]
+}

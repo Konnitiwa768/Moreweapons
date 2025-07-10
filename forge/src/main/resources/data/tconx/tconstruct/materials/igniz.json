@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 7,
+  "sortOrder": 7,
+  "hidden": false,
+  "color": "#d3072c",
+  "fluid": "tconx:molten_igniz",
+  "translationKey": "material.tconx.igniz"
+  "traits": [
+    {
+      "name": "tconx:lifesteal",
+      "level": 1
+    }
+  ]
+}

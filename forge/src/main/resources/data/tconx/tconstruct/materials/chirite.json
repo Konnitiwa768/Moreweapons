@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 5,
+  "sortOrder": 5,
+  "hidden": false,
+  "color": "#dddd00",
+  "fluid": "tconx:molten_chirite",
+  "translationKey": "material.tconx.chirite"
+  "traits": [
+    {
+      "name": "tconx:light_touch",
+      "level": 1
+    }
+  ]
+}

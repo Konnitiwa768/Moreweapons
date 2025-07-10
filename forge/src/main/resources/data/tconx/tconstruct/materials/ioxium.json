@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 4,
+  "sortOrder": 4,
+  "hidden": false,
+  "color": "#9cd307",
+  "fluid": "tconx:molten_ioxium",
+  "translationKey": "material.tconx.ioxium"
+  "traits": [
+    {
+      "name": "tconx:long_spark",
+      "level": 1
+    }
+  ]
+}

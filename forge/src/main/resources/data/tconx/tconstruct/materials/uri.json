@@ -1,0 +1,11 @@
+{
+  "craftable": false,
+  "color": "#FFD700",
+  "sortOrder": 101,
+  "tier": 7,
+  "textColor": "#FFD700",
+  "hidden": false,
+  "renderInfo": {
+    "tint": "#FFD700"
+  }
+}

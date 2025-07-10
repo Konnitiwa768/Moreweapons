@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 6,
+  "sortOrder": 6,
+  "hidden": false,
+  "color": "#66ffff",
+  "fluid": "tconx:molten_herdyeen",
+  "translationKey": "material.tconx.herdyeen"
+  "traits": [
+    {
+      "name": "tconx:ice_bind",
+      "level": 1
+    }
+  ]
+}

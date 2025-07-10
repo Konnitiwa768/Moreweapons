@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "name": "tconstruct:molten_hachilite",
+      "amount": 30
+    },
+    {
+      "name": "tconstruct:molten_kanilite",
+      "amount": 30
+    },
+    {
+      "name": "tconx:molten_diamond",
+      "amount": 30
+    }
+  ],
+  "result": {
+    "fluid": "tconx:molten_tiberium",
+    "amount": 30
+  },
+  "temperature": 1300
+}

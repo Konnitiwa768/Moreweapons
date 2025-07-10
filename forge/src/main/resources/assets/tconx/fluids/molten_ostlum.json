@@ -1,0 +1,15 @@
+{
+  "name": "Molten Ostlum",
+  "temperature": 1550,
+  "fluid": {
+    "color": "#66FF99",
+    "luminosity": 15,
+    "density": 2000,
+    "viscosity": 6000
+  },
+  "display": {
+    "color": "#66FF99",
+    "translation_key": "fluid.tconx.molten_ostlum"
+  },
+  "tag": "tconstruct:molten_metals"
+}

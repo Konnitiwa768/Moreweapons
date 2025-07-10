@@ -1,0 +1,15 @@
+{
+  "craftable": true,
+  "tier": 6,
+  "sortOrder": 6,
+  "hidden": false,
+  "color": "#8200ff",
+  "fluid": "tconx:molten_tiberite",
+  "translationKey": "material.tconx.tiberite"
+  "traits": [
+    {
+      "name": "tconx:laser_prism",
+      "level": 1
+    }
+  ]
+}

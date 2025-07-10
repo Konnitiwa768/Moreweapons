@@ -1,0 +1,12 @@
+modLoader="javafml"
+loaderVersion="[45)" # Forge 1.19.2 = 43.x
+license="MIT"
+
+[[mods]]
+modId="sakalti"
+version="1.0.0"
+displayName="TConX"
+authors="お方"
+description='''
+TConXはテスト用MODです。Forge 1.19.2対応。
+'''

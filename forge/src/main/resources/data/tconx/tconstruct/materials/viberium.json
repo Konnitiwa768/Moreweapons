@@ -1,0 +1,11 @@
+{
+  "craftable": false,
+  "color": "#8B0000",
+  "sortOrder": 100,
+  "tier": 5,
+  "textColor": "#8B0000",
+  "hidden": false,
+  "renderInfo": {
+    "tint": "#8B0000"
+  }
+}

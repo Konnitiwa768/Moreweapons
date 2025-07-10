@@ -1,0 +1,15 @@
+{
+  "name": "Molten Herdyeen",
+  "temperature": 1400,
+  "fluid": {
+    "color": "#66FFFF",
+    "luminosity": 12,
+    "density": 2000,
+    "viscosity": 6000
+  },
+  "display": {
+    "color": "#66FFFF",
+    "translation_key": "fluid.tconx.molten_herdyeen"
+  },
+  "tag": "tconstruct:molten_metals"
+}

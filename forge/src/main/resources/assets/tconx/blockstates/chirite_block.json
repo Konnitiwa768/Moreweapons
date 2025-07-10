@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tconx:block/chirite_block"
+    }
+  }
+}
