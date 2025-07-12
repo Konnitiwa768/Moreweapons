@@ -2,24 +2,14 @@ plugins {
     id 'dev.architectury.plugin' version '3.4'
 }
 
+group = 'com.sakalti.moreweapons'
+version = '1.0.0'
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
-
-    group = 'com.sakalti.moreweapons'
-    version = '1.0.0'
 
     java {
         toolchain.languageVersion.set(JavaLanguageVersion.of(17))
         withSourcesJar()
     }
-
-    // repositories {
-     //   mavenCentral()
-     //   maven { url = 'https://maven.fabricmc.net' }
-     //   maven { url = 'https://maven.architectury.dev' }
-     //   maven { url = 'https://maven.minecraftforge.net' }
-     //    no CurseMaven for Tinkers' Construct
-     //   maven { url = "https://www.cursemaven.com" }
-    }
-}
