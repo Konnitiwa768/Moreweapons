@@ -1,9 +1,7 @@
 name: Sync Fabric & Forge Sources
 
 on:
-  push:
-    branches:
-      - main  # 必要に応じて変更してください
+  workflow_dispatch:
 
 jobs:
   update-sources:
