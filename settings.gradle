@@ -1,12 +1,11 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()  // 必須
+        maven { url = 'https://maven.architectury.dev' }
+    }
+}
+
 rootProject.name = 'moreweapons'
 
 include 'fabric'
 include 'forge'
-
-// plugins のリポジトリ解決はここで行う
-pluginManagement {
-    repositories {
-        gradlePluginPortal() // 必須
-        maven { url = 'https://maven.architectury.dev' }
-    }
-}
