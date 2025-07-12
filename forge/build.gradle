@@ -7,10 +7,17 @@ architectury {
     forge()
 }
 
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.minecraftforge.net' }
+    maven { url = 'https://maven.architectury.dev' }
+    maven { url = "https://www.cursemaven.com" }
+}
+
 dependencies {
     forge "net.minecraftforge:forge:1.19.2-43.2.0"
     modApi "dev.architectury:architectury:6.5.85"
 
-    // Tinkers' Construct API (compile only, deobf for dev)
+    // Tinkers' Construct API (compileOnly, deobf)
     compileOnly fg.deobf("curse.maven:tinkers-construct-74072:6266282")
 }
