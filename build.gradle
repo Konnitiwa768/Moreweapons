@@ -2,13 +2,12 @@ plugins {
     id 'dev.architectury.plugin' version '3.4'
 }
 
-// plugins ブロックの「外」に書く！
+group = 'com.sakalti.moreweapons'
+version = '1.0.0'
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
-
-    group = 'com.sakalti.moreweapons'
-    version = '1.0.0'
 
     java {
         toolchain.languageVersion.set(JavaLanguageVersion.of(17))
