@@ -1,5 +1,5 @@
 plugins {
-    id 'dev.architectury.plugin' version '3.4.9'
+    id 'dev.architectury.architectury' version '3.4.9'
 }
 
 group = 'com.sakalti.moreweapons'
