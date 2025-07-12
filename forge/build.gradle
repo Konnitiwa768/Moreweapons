@@ -1,0 +1,16 @@
+plugins {
+    id 'dev.architectury.loom'
+}
+
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+dependencies {
+    forge "net.minecraftforge:forge:1.19.2-43.2.0"
+    modApi "dev.architectury:architectury:6.5.85"
+
+    // Tinkers' Construct API (compile only, deobf for dev)
+    compileOnly fg.deobf("curse.maven:tinkers-construct-74072:6266282")
+}
